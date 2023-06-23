@@ -53,13 +53,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         lifecycleScope.launch {
             viewModel!!.commentState.collect {
                 when (it.status) {
 
+
                     Status.LOADING -> {
                         progressBar.isVisible = true
                     }
+
 
                     Status.SUCCESS -> {
                         progressBar.isVisible = false
@@ -71,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                             commentTextview.text = comment.comment
                         }
                     }
+
 
                     else -> {
                         progressBar.isVisible = false
